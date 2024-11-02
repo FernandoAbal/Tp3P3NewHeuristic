@@ -20,8 +20,8 @@ public class VentanaPrincipal {
 	private JTextField textNombre;
 	private JTextField textMontoReserva;
 	private JButton buttonCrearReserva;
-	private JButton buttonPrintReservas;
-	
+	private JButton buttonPrintReservasMonto;
+	private JButton buttonPrintReservasCociente;
 	
 	public VentanaPrincipal() {
 		initialize();
@@ -112,9 +112,14 @@ public class VentanaPrincipal {
 		buttonCrearReserva.setBounds(10, 310, 226, 23);
 		frame.getContentPane().add(buttonCrearReserva);
 		
-		buttonPrintReservas = new JButton("PRINT RESERVAS");
-		buttonPrintReservas.setBounds(10, 344, 226, 23);
-		frame.getContentPane().add(buttonPrintReservas);
+		buttonPrintReservasMonto = new JButton("PRINT RESERVAS MONTO");
+		buttonPrintReservasMonto.setBounds(10, 344, 226, 23);
+		frame.getContentPane().add(buttonPrintReservasMonto);
+		
+		buttonPrintReservasCociente = new JButton("PRINT RESERVAS COCIENTE");
+		buttonPrintReservasCociente.setBounds(10, 378, 226, 23);
+		frame.getContentPane().add(buttonPrintReservasCociente);
+		
 		frame.setVisible(true);
 	}
 
@@ -156,7 +161,11 @@ public class VentanaPrincipal {
 		return buttonCrearReserva;
 	}
 	
-	public JButton getButtonPrintReservas() {
-		return buttonPrintReservas;
+	public JButton getButtonPrintReservasMonto() {
+		return buttonPrintReservasMonto;
+	}
+	
+	public JButton getButtonPrintReservasCociente() {
+		return buttonPrintReservasCociente;
 	}
 }

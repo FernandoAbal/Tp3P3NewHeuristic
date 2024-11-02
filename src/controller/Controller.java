@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
 import model.ComparadorPorMonto;
+import model.ComparadorPorCociente;
 import model.NegocioSala;
 import model.PsbleSolucion;
 import model.Solver;
@@ -56,9 +57,22 @@ public class Controller {
 				actualizarBoxHasta();
 			}
 		});
-		interfazUsuario.getButtonPrintReservas().addActionListener(new ActionListener() {
+		interfazUsuario.getButtonPrintReservasMonto().addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Solver solver = new Solver(salaDeEnsayo.getInstance(), new ComparadorPorMonto());
+				PsbleSolucion solucion = solver.resolver();
+				System.out.println("Cantidad de Reservas: " + solucion.getCardinal());
+		        System.out.println("Monto Total: " + solucion.getMonto());
+		        System.out.println("Horas Reservadas: " + solucion.getHorasReservadas());
+		        JOptionPane.showInternalMessageDialog(null, "Cantidad de Reservas: " + solucion.getCardinal() +
+		        		"\n" + "Monto Total: " + solucion.getMonto() + "\n" + "Horas Reservadas: " + solucion.getHorasReservadas());
+
+			}
+		});
+		
+		interfazUsuario.getButtonPrintReservasCociente().addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				Solver solver = new Solver(salaDeEnsayo.getInstance(), new ComparadorPorCociente());
 				PsbleSolucion solucion = solver.resolver();
 				System.out.println("Cantidad de Reservas: " + solucion.getCardinal());
 		        System.out.println("Monto Total: " + solucion.getMonto());

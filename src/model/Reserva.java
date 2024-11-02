@@ -29,6 +29,9 @@ public class Reserva {
 	public double getMonto() {
 		return monto;
 	}
+	public int getCantidadHoras() {
+		return horaHasta - horaDesde;
+	}
 	
 	
 	public String toString() {
